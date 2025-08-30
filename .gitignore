@@ -1,0 +1,16 @@
+# venv
+.venv/
+
+# local secrets
+env.py
+
+# python junk
+__pycache__/
+
+# local db
+db.sqlite3
+
+# generated assets
+staticfiles/
+media/
+EOF
