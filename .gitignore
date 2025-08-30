@@ -5,12 +5,12 @@
 env.py
 
 # python junk
+*.pyc
 __pycache__/
 
 # local db
-db.sqlite3
+*.sqlite3
 
 # generated assets
-staticfiles/
-media/
-EOF
+/staticfiles/
+/media/
