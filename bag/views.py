@@ -1,26 +1,26 @@
-from django.shortcuts import render
-
-# Create your views here.
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 
 def view_bag(request):
-    """ A view that renders the bag contents page """
-
+    """A view that renders the bag contents page"""
     return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
-
+    """Add a quantity of the specified product to the shopping bag"""
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
+    # Convert item_id to string to ensure consistency
+    item_id = str(item_id)
+
+    if item_id in bag:
         bag[item_id] += quantity
     else:
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    print(request.session['bag'])
+    messages.success(request, "Item added to your bag!")  # optional feedback message
     return redirect(redirect_url)
