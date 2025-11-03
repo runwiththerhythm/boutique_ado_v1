@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'checkout',
+
 
     "debug_toolbar",
 ]
