@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'checkout',
 
     'crispy_forms',
-
+    'django_countries',
 
 
     "debug_toolbar",
